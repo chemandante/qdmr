@@ -17,3 +17,5 @@
 /stage/
 CMakeLists.txt.user
 /build/
+# JetBrains IDE project subfolder
+.idea

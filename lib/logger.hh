@@ -3,6 +3,12 @@
 #ifndef LOGGER_HH
 #define LOGGER_HH
 
+/** Undefine ERROR macro defined in standard wingdi.h in Win32
+ * that conflicts with LogMessage::Level enum */
+#if defined(_WIN32) && defined(ERROR)
+#undef ERROR
+#endif
+
 #include <QFile>
 #include <QTextStream>
 #include <QList>

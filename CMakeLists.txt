@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.28.0)
 project(qdmr VERSION 0.12.0)
 
 set(RELEASE_SUFFIX "")
@@ -68,6 +68,10 @@ set(LIBS ${CORE_LIBS} ${Qt5Widgets_LIBRARIES} ${Qt5UiTools_LIBRARIES})
 IF (UNIX AND APPLE)
  SET(CORE_LIBS ${CORE_LIBS} "-framework IOKit -framework CoreFoundation")
 ENDIF(UNIX AND APPLE)
+
+IF (WIN32)
+    add_compile_definitions(YAML_CPP_STATIC_DEFINE)
+ENDIF ()
 
 set(PROJECT_VERSION_STRING "\"${PROJECT_VERSION}\"")
 message(STATUS "Build version ${PROJECT_VERSION}")

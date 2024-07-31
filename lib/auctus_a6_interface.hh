@@ -6,6 +6,12 @@
 #ifndef AUCTUS_A6_INTERFACE_HH
 #define AUCTUS_A6_INTERFACE_HH
 
+/** Undefine ERROR macro defined in standard wingdi.h in Win32
+ * that conflicts with AuctusA6Interface::State enum */
+#if defined(_WIN32) && defined(ERROR)
+#undef ERROR
+#endif
+
 #include <QObject>
 #include "usbserial.hh"
 

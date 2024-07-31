@@ -6,6 +6,12 @@
 #include "errorstack.hh"
 #include "radiointerface.hh"
 
+/** Undefine ERROR macro defined in standard wingdi.h in Win32
+ * that conflicts with some enums */
+#if defined(_WIN32) && defined(ERROR)
+#undef ERROR
+#endif
+
 /** Implements the HID radio interface using libusb.
  * @ingroup rif */
 class HIDevice: public QObject
